@@ -5,24 +5,41 @@ import Stars from '~/components/Stars.vue'
 <template>
   <section class="relative min-h-[720px] flex items-center overflow-hidden">
 
-    <!-- ⭐ STARS -->
+    <!-- ⭐ STARS (VISIBLE NOW) -->
     <Stars />
 
-    <div class="absolute inset-0 z-0">
-      <img src="/hero-visual.png" alt="Hero Visual" class="
-          w-full h-full object-cover
-          object-right
-          translate-x-[20%] md:translate-x-[35%]
-          scale-110
-          animate-[float_8s_ease-in-out_infinite]
-        " />
-      <div class="absolute inset-0 bg-gradient-to-r from-black/95 via-black/40 to-transparent"></div>
+    <!-- 🌍 HERO IMAGE WRAPPER (POSITION OK, ZOOM FIXED) -->
+    <div
+      class="
+        absolute inset-0
+        z-[2]
+        translate-x-12 sm:translate-x-24 md:translate-x-52
+        scale-105
+        transition-transform duration-[1200ms] ease-out
+        will-change-transform
+      "
+    >
+      <img
+        src="/hero-visual.png"
+        alt="Hero Visual"
+        class="
+          w-full h-full object-cover object-right
+          animate-[float_16s_ease-in-out_infinite]
+        "
+        draggable="false"
+      />
     </div>
 
-    <!-- CONTENT -->
+    <!-- 🌫 GRADIENT OVERLAY -->
+    <div
+      class="absolute inset-0 z-[3]
+             bg-gradient-to-r from-black/90 via-black/55 to-transparent
+             transition-opacity duration-[1200ms]"
+    ></div>
+
+    <!-- 📝 CONTENT -->
     <div class="relative z-10 max-w-7xl mx-auto px-6 py-28 w-full">
       <div class="grid md:grid-cols-2 gap-16 items-center">
-
         <div>
           <h1 class="text-6xl md:text-7xl font-extrabold leading-tight mb-6">
             Let’s build <br />
@@ -35,9 +52,19 @@ import Stars from '~/components/Stars.vue'
           </p>
 
           <div class="flex flex-col sm:flex-row gap-4">
-            <input type="email" placeholder="Enter your email" class="px-5 py-4 rounded-lg text-black w-full sm:w-80" />
+            <input
+              type="email"
+              placeholder="Enter your email"
+              class="px-5 py-4 rounded-lg text-black w-full sm:w-80
+                     focus:outline-none focus:ring-2 focus:ring-purple-500"
+            />
+
             <button
-              class="bg-purple-600 hover:bg-purple-500 px-5 py-2 rounded-lg">
+              class="bg-blue-600 hover:bg-blue-500
+                     px-6 py-4 rounded-lg font-semibold
+                     transition-transform duration-300
+                     hover:scale-105"
+            >
               Get in Touch
             </button>
           </div>
@@ -47,7 +74,11 @@ import Stars from '~/components/Stars.vue'
       </div>
     </div>
 
-    <!-- BOTTOM FADE -->
-    <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-b from-transparent to-[#0b0730]"></div>
+    <!-- 🔻 BOTTOM TRANSITION -->
+    <div
+      class="absolute bottom-0 left-0 right-0 z-[4] h-40
+             bg-gradient-to-b from-transparent to-[#0b0730]">
+    </div>
+
   </section>
 </template>
