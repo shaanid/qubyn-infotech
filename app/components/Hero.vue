@@ -31,7 +31,7 @@ import Stars from '~/components/Stars.vue'
       "
     >
       <img
-        src="/hero-visual.png"
+        src="/home-image.png"
         alt="Hero Visual"
         class="
           w-full h-full
