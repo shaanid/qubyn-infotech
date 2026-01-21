@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* SMOOTH FLOAT */
 @keyframes float {
   0%   { transform: translate3d(0, 0, 0); }
   50%  { transform: translate3d(0, -12px, 0); }

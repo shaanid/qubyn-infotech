@@ -5,16 +5,27 @@ import Stars from '~/components/Stars.vue'
 <template>
   <section class="relative min-h-[720px] flex items-center overflow-hidden">
 
-    <!-- ⭐ STARS (VISIBLE NOW) -->
-    <Stars />
-
-    <!-- 🌍 HERO IMAGE WRAPPER (POSITION OK, ZOOM FIXED) -->
+    <!-- 🌍 IMAGE CONTAINER (RESPONSIVE + RIGHT-ALIGNED) -->
     <div
       class="
-        absolute inset-0
-        z-[2]
-        translate-x-12 sm:translate-x-24 md:translate-x-52
-        scale-105
+        absolute inset-y-0 right-0
+        w-full
+        max-w-[1400px]
+        2xl:max-w-[1200px]
+
+        z-[1]
+
+        /* RESPONSIVE POSITIONING */
+        translate-x-0
+        sm:translate-x-12
+        md:translate-x-28
+        lg:translate-x-44
+
+        /* RESPONSIVE SCALING */
+        scale-[1.05]
+        lg:scale-[1.03]
+        2xl:scale-[1]
+
         transition-transform duration-[1200ms] ease-out
         will-change-transform
       "
@@ -23,23 +34,32 @@ import Stars from '~/components/Stars.vue'
         src="/hero-visual.png"
         alt="Hero Visual"
         class="
-          w-full h-full object-cover object-right
+          w-full h-full
+          object-cover
+          object-right
           animate-[float_16s_ease-in-out_infinite]
         "
         draggable="false"
       />
     </div>
 
-    <!-- 🌫 GRADIENT OVERLAY -->
+    <!-- 🌫 DARK GRADIENT OVER IMAGE -->
     <div
-      class="absolute inset-0 z-[3]
-             bg-gradient-to-r from-black/90 via-black/55 to-transparent
-             transition-opacity duration-[1200ms]"
+      class="
+        absolute inset-0 z-[2]
+        bg-gradient-to-r
+        from-black/90 via-black/55 to-transparent
+      "
     ></div>
 
-    <!-- 📝 CONTENT -->
+    <!-- ⭐ STARS (VISIBLE ABOVE GRADIENT) -->
+    <Stars />
+
+    <!-- 📝 HERO CONTENT -->
     <div class="relative z-10 max-w-7xl mx-auto px-6 py-28 w-full">
       <div class="grid md:grid-cols-2 gap-16 items-center">
+
+        <!-- TEXT COLUMN -->
         <div>
           <h1 class="text-6xl md:text-7xl font-extrabold leading-tight mb-6">
             Let’s build <br />
@@ -55,30 +75,42 @@ import Stars from '~/components/Stars.vue'
             <input
               type="email"
               placeholder="Enter your email"
-              class="px-5 py-4 rounded-lg text-black w-full sm:w-80
-                     focus:outline-none focus:ring-2 focus:ring-purple-500"
+              class="
+                px-5 py-4 rounded-lg
+                text-black
+                w-full sm:w-80
+                focus:outline-none
+                focus:ring-2 focus:ring-purple-500
+              "
             />
 
             <button
-              class="bg-blue-600 hover:bg-blue-500
-                     px-6 py-4 rounded-lg font-semibold
-                     transition-transform duration-300
-                     hover:scale-105"
+              class="
+                bg-blue-600 hover:bg-blue-500
+                px-6 py-4 rounded-lg
+                font-semibold
+                transition-transform duration-300
+                hover:scale-105
+              "
             >
               Get in Touch
             </button>
           </div>
         </div>
 
+        <!-- EMPTY COLUMN (KEEPS LAYOUT BALANCE) -->
         <div class="hidden md:block"></div>
       </div>
     </div>
 
-    <!-- 🔻 BOTTOM TRANSITION -->
+    <!-- 🔻 BOTTOM FADE -->
     <div
-      class="absolute bottom-0 left-0 right-0 z-[4] h-40
-             bg-gradient-to-b from-transparent to-[#0b0730]">
-    </div>
+      class="
+        absolute bottom-0 left-0 right-0
+        z-[4] h-40
+        bg-gradient-to-b from-transparent to-[#0b0730]
+      "
+    ></div>
 
   </section>
 </template>

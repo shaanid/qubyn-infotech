@@ -1,54 +1,86 @@
 <template>
-  <div class="stars">
-    <div class="stars-layer slow"></div>
-    <div class="stars-layer fast"></div>
+  <div class="stars-wrapper">
+    <div class="stars layer-back"></div>
+    <div class="stars layer-front"></div>
   </div>
 </template>
 
 <style scoped>
-.stars {
+.stars-wrapper {
   position: absolute;
   inset: 0;
-  z-index: 1;
+  z-index: 6;
   pointer-events: none;
   overflow: hidden;
+  mix-blend-mode: screen;
 }
 
-/* Shared */
-.stars-layer {
+/* Common star layer */
+.stars {
   position: absolute;
-  inset: -50%;
+  inset: -60%;
   background-repeat: repeat;
-  will-change: transform;
+  will-change: transform, opacity;
 }
 
-/* Slow stars */
-.slow {
+/* ⭐ BACK – SMALL STARS (SLOW FLOAT + SLOW TWINKLE) */
+.layer-back {
   background-image:
-    radial-gradient(2px 2px at 10% 20%, rgba(255,255,255,.9) 50%, transparent 51%),
-    radial-gradient(1.5px 1.5px at 40% 80%, rgba(180,140,255,.8) 50%, transparent 51%),
-    radial-gradient(1.2px 1.2px at 70% 40%, rgba(120,200,255,.7) 50%, transparent 51%);
-  background-size: 350px 350px;
-  opacity: 0.7;
-  animation: stars-move 160s linear infinite;
-}
-
-/* Faster stars */
-.fast {
-  background-image:
-    radial-gradient(1.5px 1.5px at 25% 35%, rgba(255,255,255,.9) 50%, transparent 51%),
-    radial-gradient(1px 1px at 60% 70%, rgba(168,85,247,.8) 50%, transparent 51%);
-  background-size: 250px 250px;
+    radial-gradient(1.5px 1.5px at 15% 25%, rgba(255,255,255,0.65) 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 35% 75%, rgba(210,190,255,0.6) 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 60% 45%, rgba(180,220,255,0.6) 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 85% 35%, rgba(255,255,255,0.65) 50%, transparent 51%);
+  background-size: 220px 220px;
   opacity: 0.6;
-  animation: stars-move 90s linear infinite;
+  animation:
+    stars-float-back 200s linear infinite,
+    stars-twinkle-back 8s ease-in-out infinite;
 }
 
-@keyframes stars-move {
-  from {
-    transform: translateY(0);
+/* ⭐ FRONT – BRIGHTER STARS (FASTER FLOAT + FASTER TWINKLE) */
+.layer-front {
+  background-image:
+    radial-gradient(3px 3px at 25% 35%, rgba(255,255,255,0.95) 50%, transparent 51%),
+    radial-gradient(3px 3px at 55% 20%, rgba(200,160,255,0.9) 50%, transparent 51%),
+    radial-gradient(3px 3px at 80% 55%, rgba(140,200,255,0.9) 50%, transparent 51%);
+  background-size: 360px 360px;
+  opacity: 0.75;
+  animation:
+    stars-float-front 130s linear infinite,
+    stars-twinkle-front 5s ease-in-out infinite;
+}
+
+/* 🌌 FLOATING (VERTICAL DRIFT) */
+@keyframes stars-float-back {
+  from { transform: translateY(0); }
+  to   { transform: translateY(-520px); }
+}
+
+@keyframes stars-float-front {
+  from { transform: translateY(0); }
+  to   { transform: translateY(-380px); }
+}
+
+/* ✨ TWINKLING (BLINKING EFFECT) */
+@keyframes stars-twinkle-back {
+  0%, 100% {
+    opacity: 0.55;
+    transform: scale(1);
   }
-  to {
-    transform: translateY(-400px);
+  50% {
+    opacity: 0.75;
+    transform: scale(1.03);
+  }
+}
+
+@keyframes stars-twinkle-front {
+  0%, 100% {
+    opacity: 0.65;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.95;
+    transform: scale(1.05);
   }
 }
 </style>
