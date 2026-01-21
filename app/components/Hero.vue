@@ -8,14 +8,15 @@ import Stars from '~/components/Stars.vue'
     <!-- ⭐ STARS -->
     <Stars />
 
-    <!-- HERO BACKGROUND IMAGE -->
     <div class="absolute inset-0 z-0">
-      <img
-        src="/hero-visual.png"
-        alt="Hero Visual"
-        class="w-full h-full object-cover object-right md:object-center animate-[float_8s_ease-in-out_infinite]"
-      />
-      <div class="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-transparent"></div>
+      <img src="/hero-visual.png" alt="Hero Visual" class="
+          w-full h-full object-cover
+          object-right
+          translate-x-[20%] md:translate-x-[35%]
+          scale-110
+          animate-[float_8s_ease-in-out_infinite]
+        " />
+      <div class="absolute inset-0 bg-gradient-to-r from-black/95 via-black/40 to-transparent"></div>
     </div>
 
     <!-- CONTENT -->
@@ -34,14 +35,9 @@ import Stars from '~/components/Stars.vue'
           </p>
 
           <div class="flex flex-col sm:flex-row gap-4">
-            <input
-              type="email"
-              placeholder="Enter your email"
-              class="px-5 py-4 rounded-lg text-black w-full sm:w-80"
-            />
+            <input type="email" placeholder="Enter your email" class="px-5 py-4 rounded-lg text-black w-full sm:w-80" />
             <button
-              class="bg-blue-600 hover:bg-blue-500 px-6 py-4 rounded-lg font-semibold transition transform hover:scale-105"
-            >
+              class="bg-purple-600 hover:bg-purple-500 px-5 py-2 rounded-lg">
               Get in Touch
             </button>
           </div>
