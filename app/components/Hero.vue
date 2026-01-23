@@ -5,52 +5,67 @@ import Stars from '~/components/Stars.vue'
 <template>
   <section class="relative min-h-[720px] flex items-center overflow-hidden">
 
-    <!-- 🌍 IMAGE CONTAINER (RESPONSIVE + RIGHT-ALIGNED) -->
-    <div class="
-        absolute inset-y-0 right-0
-        w-full
-        max-w-[1400px]
-        2xl:max-w-[1200px]
+    <!-- 🌌 VISUAL SCENE -->
+    <div class="absolute inset-0 z-[1] pointer-events-none">
+      <div class="relative w-full h-full">
 
-        z-[1]
+        <!-- 🌍 GLOBE (UNCHANGED) -->
+        <img
+          src="/globe.png"
+          alt="Globe"
+          draggable="false"
+          class="
+            absolute
+            right-[14%]
+            bottom-[-6%]
 
-        /* RESPONSIVE POSITIONING */
-        translate-x-0
-        sm:translate-x-12
-        md:translate-x-28
-        lg:translate-x-44
+            w-[460px]
+            sm:w-[520px]
+            md:w-[580px]
+            lg:w-[640px]
 
-        /* RESPONSIVE SCALING */
-        scale-[1.05]
-        lg:scale-[1.03]
-        2xl:scale-[1]
+            drop-shadow-[0_0_55px_rgba(168,85,247,0.6)]
+          "
+        />
 
-        transition-transform duration-[1200ms] ease-out
-        will-change-transform
-      ">
-      <img src="/home-image.png" alt="Hero Visual" class="
-          w-full h-full
-          object-cover
-          object-right
-          animate-[float_16s_ease-in-out_infinite]
-        " draggable="false" />
+        <!-- 👨‍🚀 ASTRONAUT (BIGGER – FIXED) -->
+        <img
+          src="/astronaut.png"
+          alt="Astronaut"
+          draggable="false"
+          class="
+            absolute
+            right-[6%]
+            bottom-[6%]
+
+            w-[260px]
+            sm:w-[290px]
+            md:w-[320px]
+
+            animate-[float_16s_ease-in-out_infinite]
+            z-10
+          "
+        />
+
+      </div>
     </div>
 
-    <!-- 🌫 DARK GRADIENT OVER IMAGE -->
-    <div class="
+    <!-- 🌫 LEFT DARK GRADIENT -->
+    <div
+      class="
         absolute inset-0 z-[2]
         bg-gradient-to-r
-        from-black/90 via-black/55 to-transparent
-      "></div>
+        from-black/90 via-black/60 to-transparent
+      "
+    ></div>
 
-    <!-- ⭐ STARS (VISIBLE ABOVE GRADIENT) -->
+    <!-- ⭐ STARS -->
     <Stars />
 
     <!-- 📝 HERO CONTENT -->
     <div class="relative z-10 max-w-7xl mx-auto px-6 py-28 w-full">
       <div class="grid md:grid-cols-2 gap-16 items-center">
 
-        <!-- TEXT COLUMN -->
         <div>
           <h1 class="text-6xl md:text-7xl font-extrabold leading-tight mb-6">
             Let’s build <br />
@@ -63,7 +78,10 @@ import Stars from '~/components/Stars.vue'
           </p>
 
           <div class="flex flex-col sm:flex-row gap-4">
-            <input type="email" placeholder="Enter your email" class="
+            <input
+              type="email"
+              placeholder="Enter your email"
+              class="
                 px-5 py-4 rounded-xl
                 bg-white/5 backdrop-blur-md
                 border border-white/10
@@ -73,26 +91,27 @@ import Stars from '~/components/Stars.vue'
                 focus:ring-2 focus:ring-purple-500/50
                 focus:border-purple-500/50
                 placeholder:text-gray-500
-                transition-all
-              " />
+              "
+            />
 
-            <button class="bg-purple-600 hover:bg-purple-500 px-5 py-2 rounded-lg">
+            <button class="bg-purple-600 hover:bg-purple-500 px-6 py-3 rounded-lg">
               Get in Touch
             </button>
           </div>
         </div>
 
-        <!-- EMPTY COLUMN (KEEPS LAYOUT BALANCE) -->
         <div class="hidden md:block"></div>
       </div>
     </div>
 
     <!-- 🔻 BOTTOM FADE -->
-    <div class="
+    <div
+      class="
         absolute bottom-0 left-0 right-0
         z-[4] h-40
         bg-gradient-to-b from-transparent to-[#0b0730]
-      "></div>
+      "
+    ></div>
 
   </section>
 </template>
