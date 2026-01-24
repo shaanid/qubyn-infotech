@@ -9,7 +9,7 @@ import Stars from '~/components/Stars.vue'
     <div class="absolute inset-0 z-[1] pointer-events-none">
       <div class="relative w-full h-full">
 
-        <!-- 🌍 GLOBE (UNCHANGED) -->
+        <!-- 🌍 GLOBE (STATIC) -->
         <img
           src="/globe.png"
           alt="Globe"
@@ -28,7 +28,7 @@ import Stars from '~/components/Stars.vue'
           "
         />
 
-        <!-- 👨‍🚀 ASTRONAUT (BIGGER – FIXED) -->
+        <!-- 👨‍🚀 ASTRONAUT (SPACE FLOAT) -->
         <img
           src="/astronaut.png"
           alt="Astronaut"
@@ -42,7 +42,7 @@ import Stars from '~/components/Stars.vue'
             sm:w-[290px]
             md:w-[320px]
 
-            animate-[float_16s_ease-in-out_infinite]
+            animate-[float_22s_ease-in-out_infinite]
             z-10
           "
         />
@@ -87,10 +87,10 @@ import Stars from '~/components/Stars.vue'
                 border border-white/10
                 text-white
                 w-full sm:w-80
+                placeholder:text-gray-500
                 focus:outline-none
                 focus:ring-2 focus:ring-purple-500/50
                 focus:border-purple-500/50
-                placeholder:text-gray-500
               "
             />
 
