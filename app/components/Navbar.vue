@@ -16,10 +16,10 @@
 
       <!-- Desktop Navigation - Centered between logo and button -->
       <nav class="hidden lg:flex items-center gap-8 xl:gap-10 text-gray-300 font-medium text-[15px] flex-1 justify-center">
-        <a href="#services" class="hover:text-white transition-colors duration-200 cursor-pointer whitespace-nowrap">Services</a>
-        <a href="#solutions" class="hover:text-white transition-colors duration-200 cursor-pointer whitespace-nowrap">Solutions</a>
-        <a href="#about" class="hover:text-white transition-colors duration-200 cursor-pointer whitespace-nowrap">About</a>
-        <a href="#contact" class="hover:text-white transition-colors duration-200 cursor-pointer whitespace-nowrap">Contact</a>
+        <NuxtLink to="/#services" class="hover:text-white transition-colors duration-200 cursor-pointer whitespace-nowrap">Services</NuxtLink>
+        <NuxtLink to="/#solutions" class="hover:text-white transition-colors duration-200 cursor-pointer whitespace-nowrap">Solutions</NuxtLink>
+        <NuxtLink to="/about" class="hover:text-white transition-colors duration-200 cursor-pointer whitespace-nowrap">About</NuxtLink>
+        <NuxtLink to="/contact" class="hover:text-white transition-colors duration-200 cursor-pointer whitespace-nowrap">Contact</NuxtLink>
       </nav>
 
       <!-- Desktop CTA Button -->
@@ -60,34 +60,34 @@
         class="lg:hidden absolute top-full left-0 w-full bg-black/95 backdrop-blur-lg border-t border-purple-600/20"
       >
         <nav class="max-w-7xl mx-auto px-4 sm:px-6 py-6 flex flex-col gap-4">
-          <a
-            href="#services"
+          <NuxtLink
+            to="/#services"
             @click="mobileMenuOpen = false"
             class="text-gray-300 hover:text-white transition-colors duration-200 py-3 px-4 rounded-lg hover:bg-purple-600/10"
           >
             Services
-          </a>
-          <a
-            href="#solutions"
+          </NuxtLink>
+          <NuxtLink
+            to="/#solutions"
             @click="mobileMenuOpen = false"
             class="text-gray-300 hover:text-white transition-colors duration-200 py-3 px-4 rounded-lg hover:bg-purple-600/10"
           >
             Solutions
-          </a>
-          <a
-            href="#about"
+          </NuxtLink>
+          <NuxtLink
+            to="/about"
             @click="mobileMenuOpen = false"
             class="text-gray-300 hover:text-white transition-colors duration-200 py-3 px-4 rounded-lg hover:bg-purple-600/10"
           >
             About
-          </a>
-          <a
-            href="#contact"
+          </NuxtLink>
+          <NuxtLink
+            to="/contact"
             @click="mobileMenuOpen = false"
             class="text-gray-300 hover:text-white transition-colors duration-200 py-3 px-4 rounded-lg hover:bg-purple-600/10"
           >
             Contact
-          </a>
+          </NuxtLink>
           <button
             class="bg-purple-600 hover:bg-purple-500 transition-all duration-200
                    px-6 py-3 rounded-lg font-semibold text-white text-sm
