@@ -5,62 +5,71 @@ import Stars from '~/components/Stars.vue'
 <template>
   <section class="relative min-h-[720px] flex items-center overflow-hidden">
 
-    <!-- 🌌 VISUAL SCENE -->
-    <div class="absolute inset-0 z-[1] pointer-events-none">
-      <div class="relative w-full h-full">
+    <!-- 🎭 BACKGROUND MASK WRAPPER -->
+    <div class="absolute inset-0 z-[1] pointer-events-none [mask-image:linear-gradient(to_bottom,black_80%,transparent)]">
+      
+      <!-- 🌌 VISUAL SCENE -->
+      <div class="absolute inset-0">
+        <div class="relative w-full h-full">
 
-        <!-- 🌍 GLOBE (STATIC) -->
-        <img
-          src="/globe.png"
-          alt="Globe"
-          draggable="false"
-          class="
-            absolute
-            right-[14%]
-            bottom-[-6%]
+          <!-- 🌍 GLOBE (STATIC) -->
+          <img
+            src="/globe.png"
+            alt="Globe"
+            draggable="false"
+            class="
+              absolute
+              left-1/2 -translate-x-1/2
+              bottom-[-10%]
+              w-[80vw]
 
-            w-[460px]
-            sm:w-[520px]
-            md:w-[580px]
-            lg:w-[640px]
+              lg:left-auto lg:right-[14%] lg:translate-x-0
+              lg:bottom-[-6%]
+              lg:w-[640px]
+              
+              sm:w-[520px]
+              md:w-[580px]
 
-            drop-shadow-[0_0_55px_rgba(168,85,247,0.6)]
-          "
-        />
+              drop-shadow-[0_0_55px_rgba(168,85,247,0.6)]
+            "
+          />
 
-        <!-- 👨‍🚀 ASTRONAUT (SPACE FLOAT) -->
-        <img
-          src="/astronaut.png"
-          alt="Astronaut"
-          draggable="false"
-          class="
-            absolute
-            right-[6%]
-            bottom-[6%]
+          <!-- 👨‍🚀 ASTRONAUT (SPACE FLOAT) -->
+          <img
+            src="/astronaut.png"
+            alt="Astronaut"
+            draggable="false"
+            class="
+              hidden sm:block
+              
+              absolute
+              right-[6%]
+              bottom-[6%]
 
-            w-[260px]
-            sm:w-[290px]
-            md:w-[320px]
+              w-[260px]
+              sm:w-[290px]
+              md:w-[320px]
 
-            animate-[float_22s_ease-in-out_infinite]
-            z-10
-          "
-        />
+              animate-[float_22s_ease-in-out_infinite]
+              z-10
+            "
+          />
 
+        </div>
       </div>
+
+      <!-- 🌫 LEFT DARK GRADIENT -->
+      <div
+        class="
+          absolute inset-0 z-[2]
+          bg-gradient-to-r
+          from-black/90 via-black/60 to-transparent
+        "
+      ></div>
+
+      <!-- ⭐ STARS -->
+      <Stars />
     </div>
-
-    <!-- 🌫 LEFT DARK GRADIENT -->
-    <div
-      class="
-        absolute inset-0 z-[2]
-        bg-gradient-to-r
-        from-black/90 via-black/60 to-transparent
-      "
-    ></div>
-
-    <!-- ⭐ STARS -->
-    <Stars />
 
     <!-- 📝 HERO CONTENT -->
     <div class="relative z-10 max-w-7xl mx-auto px-6 py-28 w-full">
@@ -103,15 +112,6 @@ import Stars from '~/components/Stars.vue'
         <div class="hidden md:block"></div>
       </div>
     </div>
-
-    <!-- 🔻 BOTTOM FADE -->
-    <div
-      class="
-        absolute bottom-0 left-0 right-0
-        z-[4] h-40
-        bg-gradient-to-b from-transparent to-[#0b0730]
-      "
-    ></div>
 
   </section>
 </template>
