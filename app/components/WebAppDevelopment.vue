@@ -41,28 +41,8 @@ import {
         </div>
 
         <!-- RIGHT CODE GLASS -->
-        <div class="dev-right">
-            <div class="code-card">
-                <div class="code-header">
-                    <span class="dot red"></span>
-                    <span class="dot yellow"></span>
-                    <span class="dot green"></span>
-                    <span class="file-name">deploy.ts</span>
-                </div>
+       <TypingCode />
 
-                <pre class="code-body"><code>
-    export async function deployApp() {
-    await build()
-    await runTests()
-
-    await deployAPI()
-    await deployMobile()
-
-    console.log('Production is live!')
-    }
-        </code></pre>
-            </div>
-        </div>
     </div>
 </template>
 
