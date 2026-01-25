@@ -10,5 +10,4 @@
 <script setup>
 import Navbar from '~/components/Navbar.vue'
 import Footer from '~/components/Footer.vue'
-// import SpaceshipCursor from '~/components/SpaceshipCursor.vue'
 </script>
