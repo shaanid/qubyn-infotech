@@ -1,7 +1,7 @@
 <template>
   <Hero />
   <Services />
-  <WebAppDevelopment />
+  <DiscoverUs />
   <Trusted />
   <AboutSection />
   <ContactSection />
