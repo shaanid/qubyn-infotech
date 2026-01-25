@@ -109,7 +109,6 @@ import {
     backdrop-filter: blur(20px);
     border-radius: 18px;
     border: 1px solid rgba(255, 255, 255, 0.08);
-    box-shadow: 0 0 90px rgba(140, 90, 255, 0.45);
     overflow: hidden;
 }
 
