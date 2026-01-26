@@ -290,7 +290,6 @@ onMounted(() => {
       border-box;
   border: 1px solid transparent;
   border-top: none;
-  border-radius: 0 0 24px 24px;
 }
 
 .grid-item {
