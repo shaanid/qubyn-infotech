@@ -97,18 +97,18 @@
       >
         <nav class="max-w-7xl mx-auto px-4 sm:px-6 py-6 flex flex-col gap-4">
           <NuxtLink
+            to="/#home"
+            @click="mobileMenuOpen = false"
+            class="text-gray-300 hover:text-white transition-colors duration-200 py-3 px-4 rounded-lg hover:bg-purple-600/10"
+          >
+            Home
+          </NuxtLink>
+          <NuxtLink
             to="/services"
             @click="mobileMenuOpen = false"
             class="text-gray-300 hover:text-white transition-colors duration-200 py-3 px-4 rounded-lg hover:bg-purple-600/10"
           >
             Services
-          </NuxtLink>
-          <NuxtLink
-            to="/#solutions"
-            @click="mobileMenuOpen = false"
-            class="text-gray-300 hover:text-white transition-colors duration-200 py-3 px-4 rounded-lg hover:bg-purple-600/10"
-          >
-            Solutions
           </NuxtLink>
           <NuxtLink
             to="/about"

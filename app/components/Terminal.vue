@@ -3,18 +3,14 @@ import { ref, onMounted } from "vue";
 
 const codeLines = [
   { text: "const QubynInfotech = {", color: "#79c0ff" },
-  {
-    text: '  mission: "Empowering innovation through code",',
-    color: "#a5d6ff",
-  },
+  { text: '  mission: "Empowering innovation",', color: "#a5d6ff" },
   { text: "  services: [", color: "#79c0ff" },
   { text: '    "Bespoke Web Solutions",', color: "#a5d6ff" },
   { text: '    "AI & Cloud Engineering",', color: "#a5d6ff" },
   { text: '    "Digital Transformation"', color: "#a5d6ff" },
   { text: "  ],", color: "#79c0ff" },
-  { text: '  focus: "Visual Excellence & Scalability",', color: "#a5d6ff" },
-  { text: '  approach: "User-centric design systems",', color: "#a5d6ff" },
-  { text: '  results: "High-performance digital products"', color: "#a5d6ff" },
+  { text: '  focus: "Scalability",', color: "#a5d6ff" },
+  { text: '  approach: "User-centric",', color: "#a5d6ff" },
   { text: "};", color: "#79c0ff" },
   { text: "", color: "" },
   { text: 'Qubyn.build({ dream: "Your Future" });', color: "#d2a8ff" },
@@ -36,11 +32,11 @@ const typeCode = () => {
       displayedLines.value[currentLineIndex.value].text +=
         currentLine.text[currentCharIndex.value];
       currentCharIndex.value++;
-      setTimeout(typeCode, 30 + Math.random() * 50);
+      setTimeout(typeCode, 30 + Math.random() * 40);
     } else {
       currentLineIndex.value++;
       currentCharIndex.value = 0;
-      setTimeout(typeCode, 200);
+      setTimeout(typeCode, 150);
     }
   }
 };
@@ -68,7 +64,7 @@ onMounted(() => {
 
         <div class="code-editor">
           <div class="line-numbers">
-            <div v-for="n in 13" :key="n" class="ln">{{ n }}</div>
+            <div v-for="n in 12" :key="n" class="ln">{{ n }}</div>
           </div>
           <div class="code-content">
             <div
@@ -77,10 +73,10 @@ onMounted(() => {
               class="code-line"
             >
               <span :style="{ color: line.color }">{{ line.text }}</span>
-              <span v-if="index === currentLineIndex" class="cursor">|</span>
+              <span v-if="index === currentLineIndex" class="cursor"></span>
             </div>
             <div v-if="currentLineIndex >= codeLines.length" class="code-line">
-              <span class="cursor">|</span>
+              <span class="cursor"></span>
             </div>
           </div>
         </div>
@@ -97,18 +93,21 @@ onMounted(() => {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 80px 20px;
+  padding: 60px 20px;
   width: 100%;
+  min-height: 500px;
+  overflow: hidden;
 }
 
+/* Background Gradients */
 .glow-outer {
   position: absolute;
-  width: 800px;
-  height: 800px;
+  width: 100%;
+  max-width: 800px;
+  height: 600px;
   background: radial-gradient(
     circle at center,
-    rgba(139, 92, 246, 0.2) 0%,
-    rgba(37, 38, 94, 0.1) 40%,
+    rgba(139, 92, 246, 0.15) 0%,
     transparent 70%
   );
   filter: blur(80px);
@@ -120,83 +119,37 @@ onMounted(() => {
 
 .glow-secondary {
   position: absolute;
-  width: 600px;
-  height: 600px;
+  width: 400px;
+  height: 400px;
   background: radial-gradient(
     circle at center,
-    rgba(29, 78, 216, 0.15) 0%,
+    rgba(29, 78, 216, 0.1) 0%,
     transparent 60%
   );
   filter: blur(100px);
   z-index: 0;
-  top: 30%;
-  right: -10%;
+  top: 20%;
+  right: 10%;
 }
 
-/* Glass Background Panel */
+/* Responsive Glass Panel */
 .workflow-panel {
   position: relative;
   z-index: 1;
   width: 100%;
-  max-width: 600px;
-  height: 450px;
+  max-width: 650px; /* Fixed feel on desktop */
+  min-height: 420px;
   display: flex;
   flex-direction: column;
   background: rgba(15, 15, 20, 0.7);
   backdrop-filter: blur(30px) saturate(160%);
   -webkit-backdrop-filter: blur(30px) saturate(160%);
-  border-radius: 24px;
-  padding: 20px;
+  border-radius: 20px;
+  padding: 15px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 40px 100px rgba(0, 0, 0, 0.5);
 }
 
-/* Bot Identity Styling */
-.bot-header {
-  margin-bottom: 24px;
-  font-family: "Inter", sans-serif;
-}
-
-.bot-identity {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 10px;
-}
-
-.bot-icon {
-  background: #312e81;
-  width: 32px;
-  height: 32px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 8px;
-}
-
-.bot-name {
-  color: #fff;
-  font-weight: 500;
-  font-size: 15px;
-}
-
-.bot-tag {
-  background: rgba(255, 255, 255, 0.1);
-  font-size: 11px;
-  padding: 2px 6px;
-  border-radius: 4px;
-  color: #a1a1aa;
-  margin-left: 6px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.bot-desc {
-  color: #9494a3;
-  font-size: 14px;
-  line-height: 1.6;
-}
-
-/* Your Original Editor Design */
 .editor-container {
   background: rgba(13, 17, 23, 0.9);
   border-radius: 12px;
@@ -210,7 +163,7 @@ onMounted(() => {
 .panel-header {
   display: flex;
   align-items: center;
-  padding: 8px 16px;
+  padding: 10px 16px;
   background: rgba(30, 36, 47, 0.4);
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
@@ -219,20 +172,16 @@ onMounted(() => {
   display: flex;
   gap: 8px;
 }
+
 .dot {
-  width: 10px;
-  height: 10px;
+  width: 11px;
+  height: 11px;
   border-radius: 50%;
 }
-.red {
-  background: #ff5f56;
-}
-.yellow {
-  background: #ffbd2e;
-}
-.green {
-  background: #27c93f;
-}
+
+.red { background: #ff5f56; }
+.yellow { background: #ffbd2e; }
+.green { background: #27c93f; }
 
 .file-name {
   margin-left: 20px;
@@ -243,12 +192,11 @@ onMounted(() => {
 
 .code-editor {
   display: flex;
-  padding: 12px;
+  padding: 16px;
   font-family: "JetBrains Mono", monospace;
   font-size: 14px;
-  line-height: 1.6;
+  line-height: 1.7;
   flex: 1;
-  overflow-y: auto;
 }
 
 .line-numbers {
@@ -260,30 +208,53 @@ onMounted(() => {
 
 .code-content {
   flex: 1;
+  overflow-x: auto; /* Handles long lines on small screens */
 }
+
 .code-line {
   white-space: pre;
+  color: #e6edf3;
+  display: flex;
+  align-items: center;
 }
+
 .cursor {
-  color: #bc8cff;
+  display: inline-block;
+  width: 8px;
+  height: 15px;
+  background: #bc8cff;
+  margin-left: 4px;
   animation: blink 1s step-end infinite;
 }
 
 @keyframes blink {
-  50% {
-    opacity: 0;
+  50% { opacity: 0; }
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 768px) {
+  .workflow-panel {
+    max-width: 90%;
+    min-height: 380px;
   }
 }
 
-@media (max-width: 600px) {
-  .workflow-panel {
-    padding: 16px;
+@media (max-width: 480px) {
+  .workflow-wrapper {
+    padding: 30px 10px;
   }
-  .line-numbers {
-    display: none;
+  .workflow-panel {
+    padding: 10px;
   }
   .code-editor {
-    font-size: 12px;
+    font-size: 11px;
+    padding: 10px;
+  }
+  .line-numbers {
+    display: none; /* Hide line numbers on very small screens for space */
+  }
+  .file-name {
+    font-size: 10px;
   }
 }
 </style>
