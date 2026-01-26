@@ -378,7 +378,7 @@ import { Bot } from "lucide-vue-next";
   border: 1px solid transparent;
   border-top: none;
   border-radius: 0;
-  padding: 48px 0;
+  padding: 0;
   margin-bottom: 48px;
 }
 
@@ -393,7 +393,7 @@ import { Bot } from "lucide-vue-next";
 .grid-item {
   display: flex;
   flex-direction: column;
-  padding: 0 40px;
+  padding: 48px 40px;
 }
 
 /* Vertical Separators using borders */
