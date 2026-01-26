@@ -49,7 +49,7 @@ import Terminal from "./Terminal.vue";
   overflow: hidden;
   display: flex;
   justify-content: center;
-  padding: 80px 0;
+  padding: 40px 0;
   border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
@@ -60,7 +60,7 @@ import Terminal from "./Terminal.vue";
   align-items: center;
   max-width: 1300px;
   width: 100%;
-  padding: 4rem 4rem;
+  padding: 2rem 4rem;
   z-index: 1;
 }
 

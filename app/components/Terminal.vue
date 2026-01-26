@@ -53,42 +53,35 @@ onMounted(() => {
 <template>
   <div class="workflow-wrapper">
     <div class="glow-outer"></div>
+    <div class="glow-secondary"></div>
+
     <div class="workflow-panel">
-      <div class="glass-border"></div>
-
-      <!-- HEADER -->
-      <div class="panel-header">
-        <div class="window-controls">
-          <span class="dot red"></span>
-          <span class="dot yellow"></span>
-          <span class="dot green"></span>
-        </div>
-        <span class="file-name">server.js — node.js</span>
-      </div>
-
-      <!-- CODE CONTENT -->
-      <div class="code-editor">
-        <div class="line-numbers">
-          <div v-for="n in 12" :key="n" class="ln">{{ n }}</div>
-        </div>
-        <div class="code-content">
-          <div
-            v-for="(line, index) in displayedLines"
-            :key="index"
-            class="code-line"
-          >
-            <span :style="{ color: line.color }">{{ line.text }}</span>
-            <span
-              v-if="
-                index === currentLineIndex &&
-                currentCharIndex < codeLines[currentLineIndex].text.length
-              "
-              class="cursor"
-              >|</span
-            >
+      <div class="editor-container">
+        <div class="panel-header">
+          <div class="window-controls">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
           </div>
-          <div v-if="currentLineIndex >= codeLines.length" class="code-line">
-            <span class="cursor">|</span>
+          <span class="file-name">server.js — node.js</span>
+        </div>
+
+        <div class="code-editor">
+          <div class="line-numbers">
+            <div v-for="n in 13" :key="n" class="ln">{{ n }}</div>
+          </div>
+          <div class="code-content">
+            <div
+              v-for="(line, index) in displayedLines"
+              :key="index"
+              class="code-line"
+            >
+              <span :style="{ color: line.color }">{{ line.text }}</span>
+              <span v-if="index === currentLineIndex" class="cursor">|</span>
+            </div>
+            <div v-if="currentLineIndex >= codeLines.length" class="code-line">
+              <span class="cursor">|</span>
+            </div>
           </div>
         </div>
       </div>
@@ -97,81 +90,127 @@ onMounted(() => {
 </template>
 
 <style scoped>
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono&display=swap");
+
 .workflow-wrapper {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1;
+  padding: 80px 20px;
   width: 100%;
 }
 
 .glow-outer {
   position: absolute;
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(
+    circle at center,
+    rgba(139, 92, 246, 0.2) 0%,
+    rgba(37, 38, 94, 0.1) 40%,
+    transparent 70%
+  );
+  filter: blur(80px);
+  z-index: 0;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 100%;
-  max-width: 700px;
-  aspect-ratio: 1;
+}
+
+.glow-secondary {
+  position: absolute;
+  width: 600px;
+  height: 600px;
   background: radial-gradient(
     circle at center,
-    rgba(147, 51, 234, 0.5) 0%,
-    rgba(139, 92, 246, 0.3) 25%,
-    rgba(124, 58, 237, 0.2) 45%,
-    rgba(109, 40, 217, 0.1) 65%,
-    transparent 85%
+    rgba(29, 78, 216, 0.15) 0%,
+    transparent 60%
   );
-  filter: blur(80px);
-  pointer-events: none;
+  filter: blur(100px);
   z-index: 0;
+  top: 30%;
+  right: -10%;
 }
 
+/* Glass Background Panel */
 .workflow-panel {
   position: relative;
-  width: 100%;
-  max-width: 630px;
-  height: 430px;
-  background: rgba(13, 17, 23, 0.9);
-  backdrop-filter: blur(40px) saturate(200%);
-  -webkit-backdrop-filter: blur(40px) saturate(200%);
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
   z-index: 1;
-  transition: all 0.3s ease;
+  width: 100%;
+  max-width: 600px;
+  height: 450px;
+  display: flex;
+  flex-direction: column;
+  background: rgba(15, 15, 20, 0.7);
+  backdrop-filter: blur(30px) saturate(160%);
+  -webkit-backdrop-filter: blur(30px) saturate(160%);
+  border-radius: 24px;
+  padding: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.5);
 }
 
-.glass-border {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  border-radius: 20px;
-  padding: 8px;
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.2) 0%,
-    rgba(255, 255, 255, 0.05) 50%,
-    rgba(255, 255, 255, 0.15) 100%
-  );
-  -webkit-mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-  mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  pointer-events: none;
-  z-index: 2;
+/* Bot Identity Styling */
+.bot-header {
+  margin-bottom: 24px;
+  font-family: "Inter", sans-serif;
+}
+
+.bot-identity {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.bot-icon {
+  background: #312e81;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+}
+
+.bot-name {
+  color: #fff;
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.bot-tag {
+  background: rgba(255, 255, 255, 0.1);
+  font-size: 11px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  color: #a1a1aa;
+  margin-left: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.bot-desc {
+  color: #9494a3;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* Your Original Editor Design */
+.editor-container {
+  background: rgba(13, 17, 23, 0.9);
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .panel-header {
   display: flex;
   align-items: center;
-  padding: 12px 20px;
+  padding: 8px 16px;
   background: rgba(30, 36, 47, 0.4);
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
@@ -180,113 +219,71 @@ onMounted(() => {
   display: flex;
   gap: 8px;
 }
-
 .dot {
   width: 10px;
   height: 10px;
   border-radius: 50%;
 }
-
-.red { background: #ff5f56; }
-.yellow { background: #ffbd2e; }
-.green { background: #27c93f; }
+.red {
+  background: #ff5f56;
+}
+.yellow {
+  background: #ffbd2e;
+}
+.green {
+  background: #27c93f;
+}
 
 .file-name {
   margin-left: 20px;
-  font-size: 13px;
+  font-size: 12px;
   color: #7d8590;
   font-family: "JetBrains Mono", monospace;
 }
 
 .code-editor {
   display: flex;
-  padding: 20px;
-  font-family: "JetBrains Mono", "Fira Code", monospace;
+  padding: 12px;
+  font-family: "JetBrains Mono", monospace;
   font-size: 14px;
   line-height: 1.6;
+  flex: 1;
+  overflow-y: auto;
 }
 
 .line-numbers {
   text-align: right;
   padding-right: 20px;
-  color: #30363d;
+  color: #3b424d;
   user-select: none;
 }
 
 .code-content {
   flex: 1;
 }
-
 .code-line {
   white-space: pre;
 }
-
 .cursor {
   color: #bc8cff;
   animation: blink 1s step-end infinite;
 }
 
-@media (max-width: 768px) {
-  .workflow-panel {
-    height: 320px;
-    border-radius: 12px;
-  }
-  
-  .glass-border {
-    border-radius: 12px;
-    padding: 6px;
-  }
-  
-  .code-editor {
-    padding: 15px;
-    font-size: 12px;
-  }
-  
-  .line-numbers {
-    padding-right: 15px;
-  }
-  
-  .panel-header {
-    padding: 10px 15px;
-  }
-  
-  .file-name {
-    margin-left: 15px;
-    font-size: 11px;
+@keyframes blink {
+  50% {
+    opacity: 0;
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 600px) {
   .workflow-panel {
-    height: 280px;
+    padding: 16px;
   }
-  
-  .code-editor {
-    padding: 10px;
-    font-size: 11px;
-  }
-  
   .line-numbers {
     display: none;
   }
-  
-  .window-controls {
-    gap: 6px;
-  }
-  
-  .dot {
-    width: 8px;
-    height: 8px;
-  }
-}
-
-@keyframes blink {
-  from,
-  to {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
+  .code-editor {
+    font-size: 12px;
   }
 }
 </style>
