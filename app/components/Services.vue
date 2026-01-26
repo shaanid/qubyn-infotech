@@ -33,15 +33,15 @@ import { Bot } from "lucide-vue-next";
                   <div class="avatar-circle">
                     <Bot :size="16" stroke-width="2.5" />
                   </div>
-                  <span class="bot-name-main">qubyn-advanced-security</span>
+                  <span class="bot-name-main">qubyn-performance-lab</span>
                   <span class="bot-tag-main">bot</span>
                 </div>
               </div>
               <div class="card-body-main">
                 <p class="card-text-main">
-                  The vulnerability in the code is due to the fact that
-                  user-provided input is directly used in HTTP responses without
-                  any sanitization.
+                  Optimized the auto-scaling policy for high-concurrency
+                  traffic. Switching to predictive scaling to ensure 99.99%
+                  uptime during peak loads.
                 </p>
 
                 <!-- Inner Code Card -->
@@ -63,26 +63,27 @@ import { Bot } from "lucide-vue-next";
                   </div>
                   <div class="code-diff">
                     <div class="diff-line">
-                      <span class="line-num">14</span>
-                      <span class="content">app.get('/', (req, res) => {</span>
+                      <span class="line-num">1</span>
+                      <span class="content">const config = {</span>
                     </div>
                     <div class="diff-line rm">
-                      <span class="line-num">15</span>
+                      <span class="line-num">2</span>
                       <span class="sign">-</span>
-                      <span class="content"
-                        >res.send(`Hello ${req.query.name}!`);</span
-                      >
+                      <span class="content"> replicas: "auto",</span>
                     </div>
                     <div class="diff-line add">
-                      <span class="line-num">15</span>
+                      <span class="line-num">2</span>
                       <span class="sign">+</span>
-                      <span class="content"
-                        >res.send(`Hello ${escape(req.query.name)}!`);</span
-                      >
+                      <span class="content"> replicas: "predictive",</span>
+                    </div>
+                    <div class="diff-line add">
+                      <span class="line-num">3</span>
+                      <span class="sign">+</span>
+                      <span class="content"> minNodes: 5</span>
                     </div>
                     <div class="diff-line">
-                      <span class="line-num">16</span>
-                      <span class="content">});</span>
+                      <span class="line-num">4</span>
+                      <span class="content">};</span>
                     </div>
                   </div>
                 </div>
@@ -157,8 +158,16 @@ import { Bot } from "lucide-vue-next";
 /* FEATURED SECTION */
 .featured-service {
   position: relative;
-  background: #020408;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background:
+    linear-gradient(#020408, #020408) padding-box,
+    linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.2) 0%,
+        rgba(255, 255, 255, 0.05) 50%,
+        rgba(255, 255, 255, 0.1) 100%
+      )
+      border-box;
+  border: 1px solid transparent;
   border-bottom: none;
   border-radius: 24px 24px 0 0;
   padding: 80px 60px;
@@ -230,11 +239,13 @@ import { Bot } from "lucide-vue-next";
 
 /* CARDS DESIGN */
 .outer-card {
-  background: #0d1117;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
   padding: 24px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
 }
 
 .card-header-main {
@@ -356,9 +367,16 @@ import { Bot } from "lucide-vue-next";
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 0;
-  border-left: 1px solid rgba(255, 255, 255, 0.1);
-  border-right: 1px solid rgba(255, 255, 255, 0.1);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background:
+    linear-gradient(#020408, #020408) padding-box,
+    linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.1) 0%,
+        rgba(255, 255, 255, 0.05) 100%
+      )
+      border-box;
+  border: 1px solid transparent;
+  border-top: none;
   border-radius: 0;
   padding: 48px 0;
   margin-bottom: 48px;
