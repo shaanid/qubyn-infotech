@@ -13,7 +13,7 @@ import { Bot } from "lucide-vue-next";
             <h2 class="featured-title">
               Engineering with precision.
               <span class="dim"
-                >Build scalable systems that define the future.</span
+                >Build systems that scale with your ambition.</span
               >
             </h2>
             <p class="featured-desc">
@@ -27,35 +27,62 @@ import { Bot } from "lucide-vue-next";
           </div>
 
           <div class="featured-visual">
-            <div class="glass-container">
-              <div class="glass-border"></div>
-              <div class="card-header">
-                <div class="bot-info">
-                  <div class="avatar-web">
+            <div class="outer-card">
+              <div class="card-header-main">
+                <div class="bot-info-main">
+                  <div class="avatar-circle">
                     <Bot :size="16" stroke-width="2.5" />
                   </div>
-                  <span class="bot-name">qubyn-core-engine</span>
-                  <span class="bot-tag">bot</span>
+                  <span class="bot-name-main">qubyn-advanced-security</span>
+                  <span class="bot-tag-main">bot</span>
                 </div>
               </div>
-              <div class="card-body">
-                <p class="card-text">
-                  Optimization complete. Improved query performance by 40% using
-                  intelligent vertical scaling and caching strategies.
+              <div class="card-body-main">
+                <p class="card-text-main">
+                  The vulnerability in the code is due to the fact that
+                  user-provided input is directly used in HTTP responses without
+                  any sanitization.
                 </p>
-                <div class="code-snippet">
-                  <div class="snippet-header">
-                    <span>Performance Optimization</span>
-                    <span class="ai-tag">AI</span>
-                  </div>
-                  <div class="lines">
-                    <div class="line rm">
-                      <span class="ln">22</span><span class="sign">-</span>
-                      <span>const data = await heavyQuery();</span>
+
+                <!-- Inner Code Card -->
+                <div class="inner-code-card">
+                  <div class="inner-header">
+                    <div class="ai-sparkle">
+                      <svg
+                        class="w-4 h-4"
+                        fill="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M12 2L14.5 9L22 12L14.5 15L12 22L9.5 15L2 12L9.5 9L12 2Z"
+                        />
+                      </svg>
                     </div>
-                    <div class="line add">
-                      <span class="ln">22</span><span class="sign">+</span>
-                      <span>const data = await getCachedResults();</span>
+                    <span>Qubyn Autofix</span>
+                    <span class="ai-badge">AI</span>
+                  </div>
+                  <div class="code-diff">
+                    <div class="diff-line">
+                      <span class="line-num">14</span>
+                      <span class="content">app.get('/', (req, res) => {</span>
+                    </div>
+                    <div class="diff-line rm">
+                      <span class="line-num">15</span>
+                      <span class="sign">-</span>
+                      <span class="content"
+                        >res.send(`Hello ${req.query.name}!`);</span
+                      >
+                    </div>
+                    <div class="diff-line add">
+                      <span class="line-num">15</span>
+                      <span class="sign">+</span>
+                      <span class="content"
+                        >res.send(`Hello ${escape(req.query.name)}!`);</span
+                      >
+                    </div>
+                    <div class="diff-line">
+                      <span class="line-num">16</span>
+                      <span class="content">});</span>
                     </div>
                   </div>
                 </div>
@@ -64,6 +91,8 @@ import { Bot } from "lucide-vue-next";
           </div>
         </div>
       </div>
+
+      <div class="full-width-line"></div>
 
       <!-- BOTTOM SERVICES GRID -->
       <div class="services-bottom-grid">
@@ -112,251 +141,265 @@ import { Bot } from "lucide-vue-next";
 
 <style scoped>
 .services-root {
-  background: #010409;
+  background: #020408;
   color: #fff;
   padding: 120px 0;
   overflow: hidden;
+  position: relative;
 }
 
 .main-container {
-  max-width: 1300px;
+  max-width: 1216px;
   margin: 0 auto;
-  padding: 0 30px;
+  padding: 0 32px;
 }
 
 /* FEATURED SECTION */
 .featured-service {
   position: relative;
-  background: rgba(255, 255, 255, 0.01);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  border-radius: 40px;
+  background: #020408;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: none;
+  border-radius: 24px 24px 0 0;
   padding: 80px 60px;
-  margin-bottom: 80px;
+  margin-bottom: 0;
+  overflow: hidden;
 }
 
 .featured-glow {
   position: absolute;
-  top: 0;
-  right: 15%;
-  width: 500px;
-  height: 500px;
+  top: -200px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 800px;
+  height: 600px;
   background: radial-gradient(
     circle,
-    rgba(147, 51, 234, 0.25) 0%,
+    rgba(147, 51, 234, 0.15) 0%,
     transparent 70%
   );
-  filter: blur(60px);
+  filter: blur(80px);
   z-index: 0;
   pointer-events: none;
 }
 
 .featured-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 80px;
   align-items: center;
   position: relative;
   z-index: 1;
 }
 
 .featured-title {
-  font-size: 2.25rem;
-  font-weight: 600;
-  line-height: 1.1;
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.2;
   margin-bottom: 24px;
+  letter-spacing: -0.02em;
 }
 
 .featured-title .dim {
-  color: #7d8590;
+  color: #8b949e;
+  display: block;
 }
 
 .featured-desc {
-  font-size: 1.15rem;
+  font-size: 1.25rem;
   color: #8b949e;
-  line-height: 1.6;
+  line-height: 1.5;
   margin-bottom: 32px;
-  max-width: 480px;
+  max-width: 440px;
 }
 
 .featured-link {
   color: #4493f8;
   font-weight: 600;
   text-decoration: none;
-  font-size: 1.1rem;
+  font-size: 1rem;
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 4px;
   transition: 0.2s;
 }
 
 .featured-link:hover {
-  color: #58a6ff;
-  transform: translateX(5px);
+  text-decoration: underline;
 }
 
-/* GLASS CARD */
-.glass-container {
-  position: relative;
-  background: rgba(22, 27, 34, 0.8);
-  backdrop-filter: blur(20px);
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+/* CARDS DESIGN */
+.outer-card {
+  background: #0d1117;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
 }
 
-.glass-border {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  border-radius: 20px;
-  padding: 1px;
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.1) 0%,
-    transparent 50%,
-    rgba(255, 255, 255, 0.05) 100%
-  );
-  -webkit-mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-  mask-composite: exclude;
+.card-header-main {
+  margin-bottom: 16px;
 }
 
-.card-header {
-  padding: 20px 24px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.bot-info {
+.bot-info-main {
   display: flex;
   align-items: center;
   gap: 12px;
 }
 
-.avatar-web {
+.avatar-circle {
   width: 28px;
   height: 28px;
-  background: rgba(168, 85, 247, 0.15);
+  background: rgba(168, 85, 247, 0.1);
   color: #bc8cff;
-  border: 1px solid rgba(168, 85, 247, 0.3);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.bot-name {
+.bot-name-main {
   color: #c9d1d9;
   font-weight: 600;
   font-size: 14px;
 }
 
-.bot-tag {
-  background: rgba(110, 118, 129, 0.1);
-  border: 1px solid rgba(110, 118, 129, 0.2);
-  color: #7d8590;
-  font-size: 10px;
-  padding: 2px 8px;
-  border-radius: 12px;
-  text-transform: uppercase;
+.bot-tag-main {
+  color: #8b949e;
+  font-size: 12px;
+  border: 1px solid #30363d;
+  padding: 1px 6px;
+  border-radius: 10px;
 }
 
-.card-body {
-  padding: 24px;
-}
-
-.card-text {
+.card-text-main {
   color: #8b949e;
   font-size: 14px;
   line-height: 1.6;
   margin-bottom: 24px;
 }
 
-.code-snippet {
-  background: #0d1117;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+.inner-code-card {
+  background: white;
   border-radius: 12px;
   overflow: hidden;
-  font-family: "JetBrains Mono", monospace;
+  color: #1f2328;
 }
 
-.snippet-header {
-  padding: 10px 16px;
-  background: rgba(255, 255, 255, 0.02);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+.inner-header {
+  padding: 12px 16px;
+  background: #f6f8fa;
+  border-bottom: 1px solid #d0d7de;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  font-size: 11px;
-  color: #7d8590;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
 }
 
-.ai-tag {
-  background: rgba(168, 85, 247, 0.1);
-  color: #bc8cff;
-  border: 1px solid rgba(168, 85, 247, 0.2);
+.ai-sparkle {
+  color: #8250df;
+}
+
+.ai-badge {
+  background: #eff1f3;
+  border: 1px solid #d0d7de;
+  color: #656d76;
+  font-size: 10px;
   padding: 1px 4px;
   border-radius: 4px;
 }
 
-.lines {
+.code-diff {
   padding: 12px 0;
+  font-family:
+    ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono",
+    monospace;
   font-size: 12px;
 }
 
-.line {
+.diff-line {
   display: flex;
-  padding: 2px 16px;
-  gap: 10px;
+  padding: 0 16px;
+  gap: 8px;
+  line-height: 20px;
 }
 
-.line.rm {
-  background: rgba(248, 81, 73, 0.08);
-  color: #ff7b72;
-}
-.line.add {
-  background: rgba(46, 160, 67, 0.1);
-  color: #7ee787;
-}
-.ln {
-  opacity: 0.3;
+.line-num {
   width: 20px;
+  color: #656d76;
   text-align: right;
+  user-select: none;
 }
+
+.diff-line.rm {
+  background: #ffebe9;
+}
+.diff-line.add {
+  background: #dafbe1;
+}
+
 .sign {
   width: 10px;
+  font-weight: 600;
+}
+
+.diff-line.rm .sign {
+  color: #cf222e;
+}
+.diff-line.add .sign {
+  color: #1a7f37;
 }
 
 /* SERVICES GRID */
 .services-bottom-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
+  gap: 0;
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0;
+  padding: 48px 0;
+  margin-bottom: 48px;
+}
+
+.full-width-line {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1);
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  pointer-events: none;
 }
 
 .grid-item {
   display: flex;
   flex-direction: column;
+  padding: 0 40px;
+}
+
+/* Vertical Separators using borders */
+.grid-item:not(:first-child) {
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .grid-title {
-  font-size: 1.25rem;
-  font-weight: 600;
-  margin-bottom: 12px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  line-height: 1.4;
 }
 
 .grid-title .light {
-  color: #7d8590;
+  color: #8b949e;
   font-weight: 400;
 }
 
 .grid-desc {
-  font-size: 1rem;
-  color: #7d8590;
+  font-size: 0.9rem;
+  color: #8b949e;
   line-height: 1.5;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
   flex-grow: 1;
 }
 
@@ -372,45 +415,41 @@ import { Bot } from "lucide-vue-next";
 }
 
 .grid-link:hover {
-  color: #58a6ff;
-  transform: translateX(3px);
+  text-decoration: underline;
 }
 
 /* RESPONSIVE */
-@media (max-width: 1100px) {
+@media (max-width: 1024px) {
   .featured-grid {
     grid-template-columns: 1fr;
-    text-align: center;
+    gap: 48px;
   }
-  .featured-content {
-    max-width: 100%;
-  }
-  .featured-desc {
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .featured-link {
-    justify-content: center;
+  .featured-service {
+    padding: 60px 40px;
   }
   .services-bottom-grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .grid-item {
+    padding: 32px 0;
+    border-left: none !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  .grid-item:first-child {
+    padding-top: 0;
+  }
+  .grid-item:last-child {
+    border-bottom: none;
   }
 }
 
 @media (max-width: 768px) {
-  .featured-service {
-    padding: 40px 30px;
-    border-radius: 30px;
-  }
   .featured-title {
-    font-size: 1.75rem;
+    font-size: 2rem;
   }
-  .services-bottom-grid {
-    grid-template-columns: 1fr;
-    gap: 50px;
-  }
-  .main-container {
-    padding: 0 20px;
+  .featured-desc {
+    font-size: 1.1rem;
   }
 }
 </style>
