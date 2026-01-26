@@ -145,7 +145,7 @@ const logos = [
 
 .logo-chip:hover {
   background: rgba(255, 255, 255, 0.05);
-  border-bordercolor: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.15);
   transform: translateY(-2px);
 }
 
