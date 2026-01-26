@@ -1,9 +1,7 @@
 <template>
   <section class="about-root" id="about">
     <div class="main-container">
-      <!-- TOP FEATURED SECTION (Matching Services Design) -->
       <div class="featured-about" ref="aboutRef">
-        <!-- Re-adding the realistic glass reflection from services style -->
         <div class="glass-sheen"></div>
         <div class="featured-glow"></div>
 
@@ -38,7 +36,6 @@
 
       <div class="full-width-line"></div>
 
-      <!-- BOTTOM VALUES GRID (Matching Services Design) -->
       <div class="values-bottom-grid">
         <div v-for="(item, index) in values" :key="index" class="grid-item">
           <div class="icon-wrap" :style="{ color: item.color }">
@@ -48,9 +45,9 @@
             {{ item.title }}. <span class="light">{{ item.subtitle }}</span>
           </h3>
           <p class="grid-desc">{{ item.desc }}</p>
-          <a href="#" class="grid-link"
-            >Learn more <span class="arrow">›</span></a
-          >
+          <a href="#" class="grid-link">
+            Learn more <span class="arrow">›</span>
+          </a>
         </div>
       </div>
     </div>
@@ -106,8 +103,6 @@ const animateStats = () => {
     const update = (currentTime) => {
       const elapsed = currentTime - startTime;
       const progress = Math.min(elapsed / duration, 1);
-
-      // Easing function (easeOutExpo)
       const easeProgress = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
 
       displayStats.value[index] = easeProgress * stat.value;
@@ -116,7 +111,6 @@ const animateStats = () => {
         requestAnimationFrame(update);
       }
     };
-
     requestAnimationFrame(update);
   });
 };
@@ -129,7 +123,7 @@ onMounted(() => {
         observer.disconnect();
       }
     },
-    { threshold: 0.2 },
+    { threshold: 0.2 }
   );
 
   if (aboutRef.value) {
@@ -142,7 +136,7 @@ onMounted(() => {
 .about-root {
   background: #020408;
   color: #fff;
-  padding: 120px 0;
+  padding: 100px 0;
   overflow: hidden;
   position: relative;
 }
@@ -150,10 +144,10 @@ onMounted(() => {
 .main-container {
   max-width: 1216px;
   margin: 0 auto;
-  padding: 0 32px;
+  padding: 0 24px;
 }
 
-/* FEATURED SECTION (MATCHING SERVICES) */
+/* FEATURED SECTION */
 .featured-about {
   position: relative;
   background:
@@ -176,11 +170,11 @@ onMounted(() => {
   position: absolute;
   top: 0;
   left: 0;
-  width: 200px;
-  height: 200px;
+  width: 300px;
+  height: 300px;
   background: radial-gradient(
     circle at 0% 0%,
-    rgba(255, 255, 255, 0.15) 0%,
+    rgba(255, 255, 255, 0.1) 0%,
     transparent 70%
   );
   z-index: 2;
@@ -196,7 +190,7 @@ onMounted(() => {
   height: 600px;
   background: radial-gradient(
     circle,
-    rgba(139, 92, 246, 0.1) 0%,
+    rgba(139, 92, 246, 0.08) 0%,
     transparent 70%
   );
   filter: blur(80px);
@@ -205,15 +199,15 @@ onMounted(() => {
 
 .featured-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 60px;
   align-items: center;
   position: relative;
   z-index: 1;
 }
 
 .featured-title {
-  font-size: 2.5rem;
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
   font-weight: 700;
   line-height: 1.2;
   margin-bottom: 24px;
@@ -226,53 +220,50 @@ onMounted(() => {
 }
 
 .featured-desc {
-  font-size: 1.25rem;
+  font-size: clamp(1rem, 2vw, 1.25rem);
   color: #8b949e;
-  line-height: 1.5;
+  line-height: 1.6;
   margin-bottom: 32px;
-  max-width: 440px;
+  max-width: 480px;
 }
 
 .featured-link {
   color: #4493f8;
   font-weight: 600;
   text-decoration: none;
-  font-size: 1rem;
   display: inline-flex;
   align-items: center;
-  gap: 4px;
+  gap: 6px;
+  transition: gap 0.2s;
 }
 
-/* STATS CARD DESIGN */
+.featured-link:hover {
+  gap: 10px;
+}
+
+/* STATS CARD */
 .stats-card {
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(255, 255, 255, 0.02);
   backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 16px;
+  border-radius: 20px;
   padding: 40px;
   display: flex;
   flex-direction: column;
   gap: 32px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-}
-
-.stat-box {
-  display: flex;
-  flex-direction: column;
 }
 
 .stat-value {
-  font-size: 3rem;
+  font-size: clamp(2rem, 5vw, 3rem);
   font-weight: 800;
   color: #fff;
   line-height: 1;
   margin-bottom: 4px;
-  letter-spacing: -0.02em;
 }
 
 .stat-label {
   color: #8b949e;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
 }
@@ -280,8 +271,7 @@ onMounted(() => {
 .full-width-line {
   height: 1px;
   background: rgba(255, 255, 255, 0.1);
-  width: 100vw;
-  margin-left: calc(-50vw + 50%);
+  width: 100%;
 }
 
 /* BOTTOM VALUES GRID */
@@ -298,21 +288,22 @@ onMounted(() => {
       border-box;
   border: 1px solid transparent;
   border-top: none;
-  margin-bottom: 48px;
+  border-radius: 0 0 24px 24px;
 }
 
 .grid-item {
   display: flex;
   flex-direction: column;
   padding: 48px 40px;
+  transition: background 0.3s;
 }
 
-.grid-item:not(:first-child) {
-  border-left: 1px solid rgba(255, 255, 255, 0.1);
+.grid-item:not(:last-child) {
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .icon-wrap {
-  margin-bottom: 20px;
+  margin-bottom: 24px;
   background: rgba(255, 255, 255, 0.03);
   width: 48px;
   height: 48px;
@@ -320,13 +311,13 @@ onMounted(() => {
   align-items: center;
   justify-content: center;
   border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .grid-title {
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   font-weight: 700;
-  margin-bottom: 8px;
+  margin-bottom: 12px;
 }
 
 .grid-title .light {
@@ -338,7 +329,7 @@ onMounted(() => {
   font-size: 0.95rem;
   color: #8b949e;
   line-height: 1.6;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
   flex-grow: 1;
 }
 
@@ -346,30 +337,57 @@ onMounted(() => {
   color: #4493f8;
   font-weight: 600;
   text-decoration: none;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   display: inline-flex;
   align-items: center;
   gap: 4px;
 }
 
+/* RESPONSIVE MEDIA QUERIES */
 @media (max-width: 1024px) {
   .featured-grid {
     grid-template-columns: 1fr;
-    gap: 48px;
+    gap: 40px;
   }
+  
   .featured-about {
     padding: 60px 40px;
   }
+
   .values-bottom-grid {
     grid-template-columns: 1fr;
   }
+
   .grid-item {
-    padding: 32px 0;
-    border-left: none !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 40px;
+    border-right: none !important;
   }
-  .grid-item:last-child {
-    border-bottom: none;
+
+  .grid-item:not(:last-child) {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+}
+
+@media (max-width: 640px) {
+  .about-root {
+    padding: 60px 0;
+  }
+
+  .featured-about {
+    padding: 40px 24px;
+    border-radius: 16px 16px 0 0;
+  }
+
+  .values-bottom-grid {
+    border-radius: 0 0 16px 16px;
+  }
+
+  .grid-item {
+    padding: 32px 24px;
+  }
+
+  .stats-card {
+    padding: 32px 24px;
   }
 }
 </style>
