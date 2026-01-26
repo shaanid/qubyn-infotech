@@ -149,6 +149,12 @@ import { Bot } from "lucide-vue-next";
   position: relative;
 }
 
+@media (max-width: 768px) {
+  .services-root {
+    padding: 64px 0;
+  }
+}
+
 .main-container {
   max-width: 1216px;
   margin: 0 auto;
@@ -390,6 +396,13 @@ import { Bot } from "lucide-vue-next";
   pointer-events: none;
 }
 
+@media (max-width: 1024px) {
+  .full-width-line {
+    width: 100%;
+    margin-left: 0;
+  }
+}
+
 .grid-item {
   display: flex;
   flex-direction: column;
@@ -443,19 +456,22 @@ import { Bot } from "lucide-vue-next";
     gap: 48px;
   }
   .featured-service {
-    padding: 60px 40px;
+    padding: 60px 32px;
+    border-radius: 24px 24px 0 0;
   }
   .services-bottom-grid {
     grid-template-columns: 1fr;
     gap: 0;
+    border-radius: 0 0 24px 24px;
+    border-top: none;
   }
   .grid-item {
-    padding: 32px 0;
+    padding: 40px 32px;
     border-left: none !important;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
   .grid-item:first-child {
-    padding-top: 0;
+    padding-top: 40px;
   }
   .grid-item:last-child {
     border-bottom: none;
@@ -463,11 +479,33 @@ import { Bot } from "lucide-vue-next";
 }
 
 @media (max-width: 768px) {
+  .main-container {
+    padding: 0 16px;
+  }
+  .featured-service {
+    padding: 48px 20px;
+    border-radius: 20px 20px 0 0;
+  }
+  .services-bottom-grid {
+    border-radius: 0 0 20px 20px;
+  }
   .featured-title {
-    font-size: 2rem;
+    font-size: 1.85rem;
   }
   .featured-desc {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
+  }
+  .grid-item {
+    padding: 32px 20px;
+  }
+  .outer-card {
+    padding: 16px;
+  }
+  .inner-header {
+    padding: 10px 12px;
+  }
+  .code-diff {
+    font-size: 11px;
   }
 }
 </style>
