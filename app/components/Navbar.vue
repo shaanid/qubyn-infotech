@@ -16,8 +16,8 @@
 
       <!-- Desktop Navigation - Centered between logo and button -->
       <nav class="hidden lg:flex items-center gap-8 xl:gap-10 text-gray-300 font-medium text-[15px] flex-1 justify-center">
+        <NuxtLink to="/#home" class="hover:text-white transition-colors duration-200 cursor-pointer whitespace-nowrap">Home</NuxtLink>
         <NuxtLink to="/#services" class="hover:text-white transition-colors duration-200 cursor-pointer whitespace-nowrap">Services</NuxtLink>
-        <NuxtLink to="/#solutions" class="hover:text-white transition-colors duration-200 cursor-pointer whitespace-nowrap">Solutions</NuxtLink>
         <NuxtLink to="/about" class="hover:text-white transition-colors duration-200 cursor-pointer whitespace-nowrap">About</NuxtLink>
         <NuxtLink to="/contact" class="hover:text-white transition-colors duration-200 cursor-pointer whitespace-nowrap">Contact</NuxtLink>
       </nav>

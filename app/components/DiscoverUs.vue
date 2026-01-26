@@ -45,10 +45,12 @@ import Terminal from "./Terminal.vue";
 .dev-section {
   position: relative;
   width: 100%;
-  background: #0d1117;
+  background: #010409;
   overflow: hidden;
   display: flex;
   justify-content: center;
+  padding: 80px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .content-wrapper {
@@ -194,7 +196,7 @@ import Terminal from "./Terminal.vue";
   .dev-section {
     padding: 2rem 0;
   }
-  
+
   .content-wrapper {
     padding: 3rem 1.5rem;
     gap: 2.5rem;
@@ -203,7 +205,7 @@ import Terminal from "./Terminal.vue";
   .text-column h2 {
     font-size: 1.75rem;
   }
-  
+
   .subtitle {
     font-size: 1rem;
     margin-bottom: 1rem;
@@ -213,7 +215,7 @@ import Terminal from "./Terminal.vue";
     font-size: 1rem;
     padding: 0.875rem 0;
   }
-  
+
   .plus {
     font-size: 1.25rem;
   }
@@ -223,7 +225,7 @@ import Terminal from "./Terminal.vue";
   .text-column h2 {
     font-size: 1.5rem;
   }
-  
+
   .content-wrapper {
     padding: 2rem 1rem;
   }
