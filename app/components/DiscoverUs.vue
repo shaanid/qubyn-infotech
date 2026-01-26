@@ -45,7 +45,7 @@ import Terminal from "./Terminal.vue";
 .dev-section {
   position: relative;
   width: 100%;
-  background: #010409;
+  background: #020408;
   overflow: hidden;
   display: flex;
   justify-content: center;

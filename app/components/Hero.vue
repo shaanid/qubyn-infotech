@@ -3,7 +3,9 @@ import Stars from "~/components/Stars.vue";
 </script>
 
 <template>
-  <section class="relative min-h-[720px] flex items-center overflow-hidden">
+  <section
+    class="relative min-h-[720px] flex items-center overflow-hidden bg-[#020408]"
+  >
     <!-- 🎭 BACKGROUND MASK WRAPPER -->
     <div
       class="absolute inset-0 z-[1] pointer-events-none [mask-image:linear-gradient(to_bottom,black_80%,transparent)]"

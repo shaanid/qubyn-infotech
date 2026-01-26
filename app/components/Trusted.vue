@@ -1,6 +1,6 @@
 <template>
   <section
-    class="relative py-24 overflow-hidden bg-white/[0.02] border-y border-white/5"
+    class="relative py-24 overflow-hidden bg-[#020408] border-y border-white/5"
   >
     <div class="max-w-5xl mx-auto px-6">
       <div class="glass-card py-10 px-6 text-center">

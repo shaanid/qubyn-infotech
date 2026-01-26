@@ -1,7 +1,7 @@
 <template>
   <div
     id="contact"
-    class="relative py-32 px-6 bg-white/[0.02] border-t border-white/5"
+    class="relative py-32 px-6 bg-[#020408] border-t border-white/5"
   >
     <div class="relative z-10 max-w-7xl mx-auto">
       <div class="text-center mb-16">
