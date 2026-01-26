@@ -271,7 +271,9 @@ onMounted(() => {
 .full-width-line {
   height: 1px;
   background: rgba(255, 255, 255, 0.1);
-  width: 100%;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  pointer-events: none;
 }
 
 /* BOTTOM VALUES GRID */
