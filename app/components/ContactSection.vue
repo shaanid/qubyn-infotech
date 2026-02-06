@@ -38,8 +38,7 @@
               </div>
               <div>
                 <h4 class="font-semibold text-white mb-1">Email Us</h4>
-                <p class="text-gray-400">hello@qubyn.com</p>
-                <p class="text-gray-400">support@qubyn.com</p>
+                <p class="text-gray-400">qubyninfotech@gmail.com</p>
               </div>
             </div>
 
@@ -63,7 +62,7 @@
               </div>
               <div>
                 <h4 class="font-semibold text-white mb-1">Call Us</h4>
-                <p class="text-gray-400">+1 (555) 123-4567</p>
+                <p class="text-gray-400">+91 (904) 4826-6401</p>
                 <p class="text-gray-400">Mon-Fri from 9am to 6pm</p>
               </div>
             </div>
@@ -94,8 +93,8 @@
               </div>
               <div>
                 <h4 class="font-semibold text-white mb-1">Visit Us</h4>
-                <p class="text-gray-400">123 Tech Park Avenue</p>
-                <p class="text-gray-400">San Francisco, CA 94103</p>
+                <p class="text-gray-400">Business Park, Calicut</p>
+                <p class="text-gray-400">Kerala, India</p>
               </div>
             </div>
           </div>

@@ -396,13 +396,6 @@ import { Bot } from "lucide-vue-next";
   pointer-events: none;
 }
 
-@media (max-width: 1024px) {
-  .full-width-line {
-    width: 100%;
-    margin-left: 0;
-  }
-}
-
 .grid-item {
   display: flex;
   flex-direction: column;
@@ -462,7 +455,6 @@ import { Bot } from "lucide-vue-next";
   .services-bottom-grid {
     grid-template-columns: 1fr;
     gap: 0;
-    border-radius: 0 0 24px 24px;
     border-top: none;
   }
   .grid-item {
@@ -484,10 +476,10 @@ import { Bot } from "lucide-vue-next";
   }
   .featured-service {
     padding: 48px 20px;
-    border-radius: 20px 20px 0 0;
+    border-radius: 24px 24px 0 0;
   }
   .services-bottom-grid {
-    border-radius: 0 0 20px 20px;
+    border-radius: 0;
   }
   .featured-title {
     font-size: 1.85rem;

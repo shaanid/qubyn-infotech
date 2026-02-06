@@ -123,7 +123,7 @@ onMounted(() => {
         observer.disconnect();
       }
     },
-    { threshold: 0.2 }
+    { threshold: 0.2 },
   );
 
   if (aboutRef.value) {
@@ -350,7 +350,7 @@ onMounted(() => {
     grid-template-columns: 1fr;
     gap: 40px;
   }
-  
+
   .featured-about {
     padding: 60px 40px;
   }
@@ -376,11 +376,11 @@ onMounted(() => {
 
   .featured-about {
     padding: 40px 24px;
-    border-radius: 16px 16px 0 0;
+    border-radius: 24px 24px 0 0;
   }
 
   .values-bottom-grid {
-    border-radius: 0 0 16px 16px;
+    border-radius: 0;
   }
 
   .grid-item {

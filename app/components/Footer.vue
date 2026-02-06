@@ -67,10 +67,6 @@
           © {{ new Date().getFullYear() }} Qubyn Infotech. Crafted with
           precision.
         </div>
-        <div class="bottom-tag">
-          <span class="status-dot"></span> System Status: All Systems
-          Operational
-        </div>
       </div>
     </div>
   </footer>
